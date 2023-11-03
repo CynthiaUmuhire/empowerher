@@ -20,22 +20,22 @@ function ButtonPopover() {
 
 export default ButtonPopover
 
-const displayButtonElements=[
+const displayButtonElements = [
     {
-        id:1,
-        icon: <FaUser/>,
-        title:"Profile",
-        path:"/profile"
+        id: 1,
+        icon: <FaUser />,
+        title: "Profile",
+        path: "/profile"
     },
     {
-        id:2,
-        icon: <FaToggleOff/>,
-        title:"theme",
+        id: 2,
+        icon: <FaToggleOff />,
+        title: "theme",
     },
     {
-        id:3,
-        icon: <FaSignOutAlt/>,
-        title:"Logout",
-        path:"/logout"
+        id: 3,
+        icon: <FaSignOutAlt />,
+        title: "Logout",
+        path: "/logout"
     }
 ]
