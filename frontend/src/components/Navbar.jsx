@@ -5,8 +5,8 @@ import { FaSignOutAlt, FaToggleOff, FaUser } from "react-icons/fa";
 function Navbar() {
 
     return (
-        <>
-            <nav className="fixed w-full bg-violet-950 text-gray-300 py-1 px-4 rounded-b-xl">
+        <section className="h-16">
+            <nav className=" fixed w-full bg-violet-950 z-10 text-gray-300 py-2 px-4 ">
                 <div className="flex justify-between max-w-screen-2xl mx-auto">
                     <h1 className="font-bold text-center text-lg sm:text-xl underline hover:translate-x-4 pt-1 ml-8">EmpowerHer</h1>
                     <div className="flex items-center justify-center gap-10 md:gap-24 mr-10">
@@ -41,7 +41,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-        </>
+        </section>
     )
 }
 
