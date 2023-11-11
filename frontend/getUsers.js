@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore,getDocs } from "firebase/firestore/lite"
+import { collection, getFirestore, getDocs, getDoc, doc } from "firebase/firestore/lite";
+// import {getAuth} from "firebase/firebase-auth"
 
-// My web app's Firebase configuration
+// Replace with your Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyA_kcLdDPgcGFhSl88fSl_d2pfHrVUigHs",
     authDomain: "empowerher-42d31.firebaseapp.com",
@@ -13,21 +14,33 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app)
-const userCollection = collection(db, "my users")
+const db = getFirestore(app);
+const usersCollection = collection(db, "my users");
 
-export async function getUsers() {
+
+export async function getUsers(id) {
     try {
-        const querySnapshot = await getDocs(userCollection);
+        if (!id) {
+            // Fetch all users
+            const querySnapshot = await getDocs(usersCollection);
+            const users = querySnapshot.docs.map((doc) => doc.data());
+            return users;
+        } else {
+            const userDocRef = doc(usersCollection, id);
+            const userDoc = await getDoc(userDocRef);
+            const userData = userDoc.exists() ? userDoc.data() : null;
 
-        // Extract data from the query snapshot
-        const users = querySnapshot.docs.map((doc) => doc.data());
-        console.log('Fetched users:', users);
-        return users;
+            if (userData) {
+                // Combine user data with ID
+                userData.id = userDoc.id;
+            }
+
+            return userData;
+        }
     } catch (error) {
         console.error('Error fetching users:', error);
         throw error;
     }
 }
 
-// Example usage of getUsers
+// export const auth = getAuth(app)
