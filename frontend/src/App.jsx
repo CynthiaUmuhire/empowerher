@@ -1,53 +1,54 @@
-import {RouterProvider, createBrowserRouter } from "react-router-dom"
-import Home, {loader as usersLoader } from "./pages/Home"
-import Profile from "./pages/Profile"
-import MainLayout from "./components/MainLayout"
-import Story, {loader as userLoader} from "./pages/Story"
-import Landing from "./pages/Landing"
-import Login from "./pages/Login"
-import AuthLayout from "./components/AuthLayout"
-import Signup from "./pages/signup"
-
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AuthLayout from "./components/layouts/AuthLayout";
+import MainLayout, { storiesLoader } from "./components/layouts/MainLayout";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Stories from "./pages/Stories";
+import Story, { loader as userLoader } from "./pages/Story";
+import Signup from "./pages/signup";
 
 export default function App() {
   const routes = createBrowserRouter([
     {
       path: "/",
-      element: <AuthLayout/>,
-      children: [{
-        index: true,
-          element: <Landing/>
+      element: <AuthLayout />,
+      children: [
+        {
+          index: true,
+          element: <Landing />,
         },
         {
           path: "login",
-          element: <Login />
-        },{
-          path: "signup",
-          element: <Signup/>
-        }]
-      },
-    {
-      path:"/home",
-      element: <MainLayout/>,
-      children: [
-        {
-          index : true,
-          element: <Home/>,
-          loader: usersLoader
+          element: <Login />,
         },
         {
-          path: "/home/:id",
-          element: <Story/>,
-          loader: userLoader
-        }
-      ]
+          path: "signup",
+          element: <Signup />,
+        },
+      ],
     },
     {
-      path:"/profile",
-      element: <Profile/>
-    }
-  ])
-  return (
-    <RouterProvider router={routes}/>
-  )
+      path: "stories",
+      element: <MainLayout />,
+
+      loader: storiesLoader,
+      children: [
+        {
+          index: true,
+          element: <Stories />,
+        },
+        {
+          path: ":id",
+          element: <Story />,
+          loader: userLoader,
+        },
+      ],
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
+    },
+  ]);
+  return <RouterProvider router={routes} />;
 }
