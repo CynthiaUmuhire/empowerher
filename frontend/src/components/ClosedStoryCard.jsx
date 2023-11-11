@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom"
-function ClosedStoryCard({ title, story, image }) {
+function ClosedStoryCard({ title, path ,story, image }) {
     return (
-        <article className="group max-w-md">
-            <img
-                alt="sarah"
-                src={image}
-                className="h-56 w-full rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
-            />
-
-            <div className="p-4">
-                <Link to="1">
+        <article className="group max-w-lg flex">
+           <div className="w-1/2">
+                <img
+                    alt="sarah"
+                    src={image}
+                    className="h-56  rounded-xl object-cover shadow-xl transition group-hover:grayscale-[50%]"
+                />
+           </div>
+            <div className="p-4 w-1/2">
+                <Link to={`/${path}`}>
                     <h3 className="text-lg font-medium text-gray-900">
                        {title}
                     </h3>
