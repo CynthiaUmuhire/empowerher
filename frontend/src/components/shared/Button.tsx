@@ -1,11 +1,19 @@
 import classNames from "classnames";
+import { PropsWithChildren } from "react";
+
+interface ButtonProps {
+  type?: "button" | "submit" | "reset";
+  disabled: boolean;
+  variant: string;
+  handleClick: () => void;
+}
 export default function Button({
   children,
   type,
   disabled = false,
   variant = "primary",
   handleClick,
-}) {
+}:PropsWithChildren<ButtonProps>) {
   const buttonClasses = classNames(
     "w-full flex justify-center items-center gap-5 rounded-full p-2 font-inter text-sm font-bold outline transition duration-200 ease-in-out hover:scale-105",
     {

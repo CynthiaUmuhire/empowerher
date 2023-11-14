@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Stories from "./pages/Stories";
 import Story, { loader as userLoader } from "./pages/Story";
-import Signup from "./pages/signup";
+import Signup from "./pages/Signup";
 
 export default function App() {
   const routes = createBrowserRouter([
