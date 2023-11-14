@@ -4,7 +4,7 @@ import Button from "./shared/Button";
 
 export default function StoryCard({ title, image, id, content, author }) {
   return (
-    <article className="flex flex-col shadow my-4">
+    <article className="flex flex-col  shadow my-4">
       <div className="hover:opacity-75 h-60">
         <img src={image} className="w-full h-full object-cover" />
       </div>
@@ -22,8 +22,11 @@ export default function StoryCard({ title, image, id, content, author }) {
           {content}
         </p>
       </div>
-      <Link to={id}>
-        <Button text="Read more" icon={AiOutlineArrowRight} variant="primary" />
+      <Link to={id} className="mx-6 mb-6">
+        <Button variant="primary" className="max-w-md" >
+          Read More
+          <AiOutlineArrowRight/>
+        </Button>
       </Link>
     </article>
   );

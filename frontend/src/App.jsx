@@ -31,7 +31,6 @@ export default function App() {
     {
       path: "stories",
       element: <MainLayout />,
-
       loader: storiesLoader,
       children: [
         {

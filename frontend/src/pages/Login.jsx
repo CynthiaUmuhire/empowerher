@@ -2,7 +2,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import classNames from 'classnames'
-import { Link } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
+import Button from '../components/shared/Button'
 
 
 const schema = yup
@@ -19,7 +20,10 @@ export default function Login() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = data => console.log(data)
+    const onSubmit = data => {
+        console.log(data)
+        redirect("stories")
+    }
 
     return (
         <>
@@ -48,9 +52,10 @@ export default function Login() {
                         />
                         {errors.password && <p className=" pl-3 text-red-400"> The password is invalid</p>}
 
-                        <button
-                            className="mt-9 w-full rounded-full py-3 text-center font-bold bg-violet-950 text-gray-300 transition hover:bg-gray-300 hover:text-violet-950 sm:w-80"
-                        > Log in</button>
+                        <Button
+                        type="Submit"
+                            className="mt-9 w-full rounded-full py-3 text-center font-bold bg-primary-800 text-w transition hover:bg-gray-300 hover:text-violet-950 sm:w-80"
+                        > Log in</Button>
                         <p className="text-base text-gray-300">Don&apos;t have an account yet? <Link to="/signup" className="underline text-violet-950">Sing-up</Link></p>
                         
                     </form>

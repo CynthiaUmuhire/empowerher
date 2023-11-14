@@ -1,11 +1,10 @@
 import classNames from "classnames";
 export default function Button({
-  text,
-  type = "button",
+  children,
+  type,
   disabled = false,
   variant = "primary",
   handleClick,
-  icon,
 }) {
   const buttonClasses = classNames(
     "w-full flex justify-center items-center gap-5 rounded-full p-2 font-inter text-sm font-bold outline transition duration-200 ease-in-out hover:scale-105",
@@ -24,7 +23,7 @@ export default function Button({
       type={type}
       className={buttonClasses}
     >
-      {text} {icon && icon()}
+      {children}
     </button>
   );
 }

@@ -15,20 +15,19 @@ export default function Story() {
     <div>
       <header className="w-full container mx-auto">
         <div className="flex flex-col items-center py-12">
-          <a
+          <h1
             className="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
-            href="#"
           >
             {story.short_title}
-          </a>
+          </h1>
         </div>
       </header>
 
       <div className="container mx-auto flex flex-wrap py-6">
         <section className="w-full flex flex-col items-center px-3">
           <article className="flex flex-col shadow my-4">
-            <div className="hover:opacity-75">
-              <img src={story.imageUrl} className="w-full h-full" />
+            <div className="hover:opacity-75 ">
+              <img src={story.image} className="w-full h-full" />
             </div>
             <div className="bg-white flex flex-col justify-start p-6">
               <a
@@ -75,7 +74,7 @@ export default function Story() {
               ></textarea>
             </div>
             <div className="w-1/2 mx-auto">
-              <Button text="submit" variant="secondary"></Button>
+              <Button  variant="secondary">Submit</Button>
             </div>
           </form>
           {story.comments.map((comment) => (

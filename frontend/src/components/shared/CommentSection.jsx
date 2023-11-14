@@ -1,20 +1,17 @@
 import { AiFillHeart } from "react-icons/ai";
 import { AiFillLike } from "react-icons/ai";
+import { FaUser } from "react-icons/fa";
 export default function CommentSection({ author, content, post_date }) {
   return (
     <article className="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
       <header className="flex justify-between items-center mb-2">
         <div className="flex items-center">
-          <p className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-            <img
-              className="mr-2 w-6 h-6 rounded-full"
-              src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-              alt="Michael Gough"
-            />
+          <p className="inline-flex items-center gap-2 mr-3 text-sm text-gray-900 dark:text-white font-semibold">
+            <FaUser/>
             {author}
           </p>
           <p className="text-sm text-primary-800 dark:text-gray-400">
-            <time title="February 8th, 2022">{JSON.stringify(post_date)}</time>
+            <time>{JSON.stringify(post_date)}</time>
           </p>
         </div>
       </header>

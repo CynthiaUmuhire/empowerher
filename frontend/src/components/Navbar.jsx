@@ -59,8 +59,8 @@ const navbarLinks = [{
 },
 {
     id: 3,
-    title: "Explore",
-    path: "vgh",
+    title: "Stories",
+    path: "/    ",
 }]
 const profileButtonElements = [
     {
