@@ -1,11 +1,13 @@
-import { initializeApp } from "firebase/app";
+import { FirebaseApp, initializeApp } from "firebase/app";
 import {
+  CollectionReference,
+  Firestore,
   addDoc,
   collection,
+  deleteDoc,
+  doc,
   getDocs,
   getFirestore,
-  doc,
-  deleteDoc,
 } from "firebase/firestore/lite";
 
 // Replace with your Firebase configuration
@@ -21,7 +23,10 @@ const firebaseConfig = {
 // Initialize Firebase
 
 class ApiClient {
-  constructor(collectionName) {
+  app: FirebaseApp;
+  db: Firestore;
+  customCollection: CollectionReference;
+  constructor(public collectionName: string) {
     this.collectionName = collectionName;
     this.app = initializeApp(firebaseConfig);
     this.db = getFirestore(this.app);
@@ -29,20 +34,20 @@ class ApiClient {
   }
 
   async getDatas() {
-    const querySnapshot = await getDocs(this.customCollection);
+    const querySnapshot = await getDocs(this.customCollection); 
     const data = querySnapshot.docs.map((doc) => {
       return { ...doc.data(), id: doc.id };
     });
     return data;
   }
 
-  async getData(id) {
+  async getData(id: string) {
     const stories = await this.getDatas();
     const story = stories.find((story) => story.id == id);
     return story;
   }
 
-  async addData(story) {
+  async addData(story: { [key: string]: string }) {
     const querySnapshot = await addDoc(
       collection(this.db, this.collectionName),
       story
@@ -50,7 +55,7 @@ class ApiClient {
     return querySnapshot;
   }
 
-  async deleteData(id) {
+  async deleteData(id: string) {
     const querySnapshot = await deleteDoc(
       doc(this.db, this.collectionName, id)
     );
@@ -58,6 +63,6 @@ class ApiClient {
   }
 }
 
-export default function (collection) {
+export default function (collection: string) {
   return new ApiClient(collection);
 }

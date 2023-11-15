@@ -7,10 +7,10 @@ function Landing() {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [opacity, setOpacity] = useState(0);
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
         if (!divRef.current || isFocused) return;
 
-        const div = divRef.current;
+        const div:HTMLElement = divRef.current;
         const rect = div.getBoundingClientRect();
 
         setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });

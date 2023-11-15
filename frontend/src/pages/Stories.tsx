@@ -1,8 +1,9 @@
 import { useOutletContext } from "react-router-dom";
 import StoryCard from "../components/StoryCard";
+import { Story } from "../api/api";
 
 export default function Stories() {
-  const stories = useOutletContext();
+  const stories:Story[] = useOutletContext();
   console.log(stories);
   return (
     <section className="  max-w-screen-2xl mx-auto">

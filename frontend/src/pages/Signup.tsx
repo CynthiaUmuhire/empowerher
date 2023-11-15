@@ -10,7 +10,7 @@ const schema = yup
         username: yup.string().required().trim(),
         email:yup.string().trim(),
         password: yup.string().required().trim(),
-        confirmPassword: yup.string().required().oneOf([yup.ref("password"), null], "Passwords must match"),
+        confirmPassword: yup.string().required().oneOf([yup.ref("password")], "Passwords must match"),
     })
     .required()
 export default function Signup() {
@@ -21,7 +21,7 @@ export default function Signup() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = data => console.log(data)
+    const onSubmit = (data: yup.InferType<yup.Schema>) => console.log(data)
 
     return (
         <>

@@ -20,7 +20,7 @@ export default function Login() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = data => {
+    const onSubmit = (data:yup.InferType<typeof schema>) => {
         console.log(data)
         redirect("stories")
     }
@@ -53,8 +53,7 @@ export default function Login() {
                         {errors.password && <p className=" pl-3 text-red-400"> The password is invalid</p>}
 
                         <Button
-                        type="Submit"
-                            className="mt-9 w-full rounded-full py-3 text-center font-bold bg-primary-800 text-w transition hover:bg-gray-300 hover:text-violet-950 sm:w-80"
+                        type="submit"
                         > Log in</Button>
                         <p className="text-base text-gray-300">Don&apos;t have an account yet? <Link to="/signup" className="underline text-violet-950">Sing-up</Link></p>
                         

@@ -3,9 +3,9 @@ import { PropsWithChildren } from "react";
 
 interface ButtonProps {
   type?: "button" | "submit" | "reset";
-  disabled: boolean;
-  variant: string;
-  handleClick: () => void;
+  disabled?: boolean;
+  variant?: string;
+  handleClick?: () => void;
 }
 export default function Button({
   children,

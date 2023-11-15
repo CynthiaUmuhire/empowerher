@@ -5,8 +5,8 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Stories from "./pages/Stories";
-import Story, { loader as userLoader } from "./pages/Story";
 import Signup from "./pages/Signup";
+import StoryDetails, { loader as storyLoader } from "./pages/StoryDetails";
 
 export default function App() {
   const routes = createBrowserRouter([
@@ -39,8 +39,8 @@ export default function App() {
         },
         {
           path: ":id",
-          element: <Story />,
-          loader: userLoader,
+          element: <StoryDetails />,
+          loader: storyLoader,
         },
       ],
     },

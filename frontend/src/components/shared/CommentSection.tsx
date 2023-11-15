@@ -1,7 +1,8 @@
 import { AiFillHeart } from "react-icons/ai";
 import { AiFillLike } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
-export default function CommentSection({ author, content, post_date }) {
+import { CommentsData } from "../../api/api";
+export default function CommentSection({ author, content, post_date }:CommentsData) {
   return (
     <article className="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
       <header className="flex justify-between items-center mb-2">
@@ -25,12 +26,12 @@ export default function CommentSection({ author, content, post_date }) {
           Like
           <AiFillLike />
         </button>
-        <span
+        <button
           type="button"
           className="flex gap-1 items-center text-lg text-primary-200  dark:text-gray-400 font-medium"
         >
           <AiFillHeart /> 123
-        </span>
+        </button>
       </div>
     </article>
   );

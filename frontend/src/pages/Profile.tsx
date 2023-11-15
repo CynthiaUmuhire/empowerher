@@ -6,12 +6,12 @@ export default function Profile() {
 
   useEffect(() => {
     (async () => {
-      const result = await users.getDatas();
+      const result:any = await users.getDatas();
       setData(result);
     })();
   }, []);
 
-  function addStory(data) {
+  function addStory(data: string) {
     (async () => {
       stories.deleteData(data);
     })();
