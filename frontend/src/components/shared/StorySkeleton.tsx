@@ -1,6 +1,6 @@
 export default function StorySkeleton() {
   return (
-    <div className="relative max-w-md mx-auto flex flex-col items-center overflow-hidden p-6 transition-colors  hover:bg-primary-400/10">
+    <div className="relative max-w-md mx-auto flex flex-col items-center overflow-hidden p-6 transition-colors bg-primary-800/70  hover:bg-primary-400/10">
       <div className="basis-3/5 ">
         <div className="h-32 w-4/5 animate-pulse rounded-lg  bg-primary-800/40"></div>
       </div>

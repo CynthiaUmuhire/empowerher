@@ -25,30 +25,27 @@ export default function StoryDetails() {
                 </div>
               </header>
 
-              <div className="container mx-auto flex flex-wrap py-6">
+              <div className="grid place-content-center py-6">
                 <section className="max-w-7xl flex flex-col items-center px-3">
                   <article className="flex flex-col justify-center shadow my-4">
                     <div className="hover:opacity-75 w-2/3 rounded-lg mx-auto">
                       <img src={story?.image} className="w-full h-full" />
                     </div>
-                    <div className="bg-white flex flex-col items-center justify-center p-6">
+                    <div className="bg-white flex flex-col text-gray-900 items-center justify-center p-6">
                       <a
                         href="#"
                         className="text-blue-700 text-sm font-bold uppercase pb-4"
                       >
                         Technology
                       </a>
-                      <p className="text-3xl font-bold hover:text-gray-700 pb-4">
+                      <p className="text-2xl font-bold mx-20  hover:text-gray-700 pb-4">
                         {story?.title}
                       </p>
                       <p className="text-sm pb-8">
                         By {story?.author}, Published on{" "}
                         {new Date(story?.post_date.seconds).toDateString()}
                       </p>
-                      <h1 className="text-2xl font-bold pb-3">Introduction</h1>
-
-                      <h1 className="text-2xl font-bold pb-3">Heading</h1>
-                      <p className="pb-3">{story?.content}</p>
+                      <p className="pb-3 max-w-4xl mx-auto">{story?.content}</p>
                     </div>
                   </article>
                 </section>
@@ -57,12 +54,12 @@ export default function StoryDetails() {
               <section className="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
                 <div className="max-w-2xl mx-auto px-4">
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-                      Discussion (20)
+                    <h2 className="text-lg lg:text-2xl font-bold text-primary-800 dark:text-white">
+                      Discussion
                     </h2>
                   </div>
                   <form className="mb-6">
-                    <div className="py-2 px-4 mb-4 rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                    <div className="py-2 px-4 mb-4 rounded-lg rounded-t-lg border-2 border-primary-100 dark:bg-gray-800 dark:border-gray-700">
                       <label className="sr-only">Your comment</label>
                       <textarea
                         id="comment"
@@ -72,7 +69,7 @@ export default function StoryDetails() {
                         required
                       ></textarea>
                     </div>
-                    <div className="w-1/2 mx-auto">
+                    <div className="w-1/4 mx-auto">
                       <Button variant="secondary">Submit</Button>
                     </div>
                   </form>
