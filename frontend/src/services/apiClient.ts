@@ -1,4 +1,5 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
+import { Auth, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
   CollectionReference,
   Firestore,
@@ -26,10 +27,12 @@ class ApiClient {
   app: FirebaseApp;
   db: Firestore;
   customCollection: CollectionReference;
+  auth: Auth 
   constructor(public collectionName: string) {
     this.collectionName = collectionName;
     this.app = initializeApp(firebaseConfig);
     this.db = getFirestore(this.app);
+    this.auth = getAuth(this.app)
     this.customCollection = collection(this.db, this.collectionName);
   }
 
@@ -47,7 +50,7 @@ class ApiClient {
     return story;
   }
 
-  async addData(story: { [key: string]: string }) {
+  async addData(story: { [key: string]: string | number | undefined }) {
     const querySnapshot = await addDoc(
       collection(this.db, this.collectionName),
       story
@@ -60,6 +63,24 @@ class ApiClient {
       doc(this.db, this.collectionName, id)
     );
     return querySnapshot;
+  }
+  
+  async signIn(email:string, password:string){
+    const userCredential = await signInWithEmailAndPassword(this.auth, email, password)
+    return userCredential
+  }
+  async signUp(email:string, password:string, username:string, confirmPassword:string){
+    const createdUser = await createUserWithEmailAndPassword(this.auth, email, password)
+    console.log(createdUser);
+    const user = {
+      userId: createdUser.user.uid,
+      username:username,
+      email:email,
+      createdAt:createdUser.user.metadata.creationTime,
+      lastSignIn:createdUser.user.metadata.lastSignInTime
+    }
+    await this.addData(user)
+    return createdUser
   }
 }
 

@@ -2,17 +2,18 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import classNames from 'classnames'
-import { Link, redirect } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../components/shared/Button'
-
+import { signin } from '../api'
 
 const schema = yup
     .object({
-        username: yup.string().required().trim(),
+        email: yup.string().required().trim(),
         password: yup.string().required(),
     })
     .required()
 export default function Login() {
+    const navigate = useNavigate()
     const {
         handleSubmit,
         register,
@@ -20,9 +21,15 @@ export default function Login() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = (data:yup.InferType<typeof schema>) => {
-        console.log(data)
-        redirect("stories")
+    const onSubmit = async (data:yup.InferType<typeof schema>) => {
+       try{
+         console.log(data)
+         const {email, password }= data 
+        await signin.signIn(email, password)
+        navigate("/stories",{replace:true})
+       } catch(error){
+            console.log("error:", error.message)
+       }
     }
 
     return (
@@ -37,13 +44,13 @@ export default function Login() {
                         className="flex flex-col gap-4 text-black sm:text-sm"
                     >
                         <input
-                            placeholder="Username / e-mail "
-                            className={classNames(['w-full h-full py-2 rounded-full text-start px-5 bg-gray-300 placeholder:text-violet-500', errors.username && 'border-2 border-red-400'])}
+                            placeholder="e-mail "
+                            className={classNames(['w-full h-full py-2 rounded-full text-start px-5 bg-gray-300 placeholder:text-violet-500', errors.email && 'border-2 border-red-400'])}
                             type="text"
-                            {...register('username')}
+                            {...register('email')}
                         />
 
-                        {errors.username && <p className=" pl-3 text-red-400">The email/ username is invalid</p>}
+                        {errors.email && <p className=" pl-3 text-red-400">The email you entered is not recognized!</p>}
                         <input
                             placeholder="password"
                             className={classNames(['w-full h-full py-2 rounded-full text-start px-5 bg-gray-300 placeholder:text-violet-500', errors.password && 'border-2 border-red-400'])}
@@ -55,7 +62,7 @@ export default function Login() {
                         <Button
                         type="submit"
                         > Log in</Button>
-                        <p className="text-base text-gray-300">Don&apos;t have an account yet? <Link to="/signup" className="underline text-violet-950">Sing-up</Link></p>
+                        <p className="text-base text-gray-300">Don&apos;t have an account yet? <Link to="/signup" className="underline text-violet-950">Sign-up</Link></p>
                         
                     </form>
                 </div>

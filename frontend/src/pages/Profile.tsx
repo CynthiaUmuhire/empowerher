@@ -4,23 +4,25 @@ import { stories, users } from "../api";
 export default function Profile() {
   const [data, setData] = useState();
 
-  useEffect(() => {
-    (async () => {
-      const result:any = await users.getDatas();
-      setData(result);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const result:any = await users.getDatas();
+  //     setData(result);
+  //   })();
+  // }, []);
 
-  function addStory(data: string) {
+  function addStory() {
     (async () => {
-      stories.deleteData(data);
+      // stories.deleteData(data);
+      const res = await stories.getDatas()
+     setData (res)
     })();
   }
 
   return (
     <div>
       <button
-        onClick={() => addStory("wKKYV8ph7GNErN62mg7M")}
+        onClick={() => addStory()}
         className="bg-red-500  p-4 rounded-2stories."
       >
         Add New Collection{" "}

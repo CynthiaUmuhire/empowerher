@@ -2,7 +2,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import classNames from 'classnames'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { signup } from '../api'
 
 
 const schema = yup
@@ -14,6 +15,7 @@ const schema = yup
     })
     .required()
 export default function Signup() {
+    const navigate = useNavigate() 
     const {
         handleSubmit,
         register,
@@ -21,14 +23,19 @@ export default function Signup() {
     } = useForm({
         resolver: yupResolver(schema),
     })
-    const onSubmit = (data: yup.InferType<yup.Schema>) => console.log(data)
+    const onSubmit = async (data: yup.InferType<yup.Schema>) => {
+        console.log(data)
+        const { email, password, username, confirmPassword } = data;
+     await signup.signUp(email, password, username, confirmPassword);
+     navigate("/stories");
+    }
 
     return (
         <>
             <div className="flex items-center justify-center px-4 sm:px-10 2xl:mt-16 2xl:items-start">
                 <div className="w-full space-y-20 sm:w-auto">
                     <p className="flex flex-col text-center  text-xl text-gray-300 ">
-                        <span>Log in</span>
+                        <span>Sign Up</span>
                     </p>
                     <form
                         onSubmit={handleSubmit(onSubmit)}
@@ -66,7 +73,7 @@ export default function Signup() {
                         {errors.confirmPassword && <p className=" pl-3 text-red-400"> Your passwords are incompatible</p>}
                         <button
                             className="mt-9 w-full rounded-full py-3 text-center font-bold bg-violet-950 text-gray-300 transition hover:bg-gray-300 hover:text-violet-950 sm:w-80"
-                        > Log in</button>
+                        > register</button>
                         <p className="text-base text-gray-300">Already have an account ? <Link to="/login" className="underline text-red-300">Login</Link></p>
 
                     </form>
