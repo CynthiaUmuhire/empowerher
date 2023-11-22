@@ -10,7 +10,7 @@ function AuthLayout() {
             </div>
           </nav>
         </div>
-        <section className="my-10">
+        <section className="my-10 max-w-screen-2xl mx-auto">
           <Outlet />
         </section>
       </section>

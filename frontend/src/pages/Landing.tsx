@@ -41,7 +41,7 @@ function Landing() {
                 onBlur={handleBlur}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="relative h-screen flex items-center justify-center backdrop-blur-md bg-transparent "
+                className="relative h-screen grid place-content-center  backdrop-blur-md bg-transparent"
             >
                 <div
                     className='pointer-events-none absolute -inset-px opacity-0  transition duration-300'
@@ -50,7 +50,7 @@ function Landing() {
                         background: `radial-gradient(300px circle at ${position.x}px ${position.y}px, rgba(255,182,255,.1), transparent 40%)`,
                     }}
                 />
-                <div className="max-w-lg  items-center justify-center flex flex-col gap-5 font-medium ">
+                <div className="max-w-lg px-10 sm:px-0 mx-auto items-center justify-center flex flex-col gap-5 font-medium ">
                     <p className='text-md text-slate-300 animate-slide-in-from-left'>Welcome to Nurture Nest, A Community of Empowerment and Support. We specialize in teenage pregnancies, providing a platform for young mothers to share their stories and learn from each other. Join us today and start your journey of growth, change, and healing!</p>
                     <Link to="/login" className="rounded-md bg-gray-300 text-center py-2 px-3 text-violet-950">Join the community</Link>
                 </div>
