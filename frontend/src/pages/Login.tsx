@@ -28,7 +28,9 @@ export default function Login() {
         await signin.signIn(email, password)
         navigate("/stories",{replace:true})
        } catch(error){
-            console.log("error:", error.message)
+            if (error instanceof Error){
+                throw new Error(`${error.message}`)
+            }
        }
     }
 
@@ -62,7 +64,7 @@ export default function Login() {
                         <Button
                         type="submit"
                         > Log in</Button>
-                        <p className="text-base text-gray-300">Don&apos;t have an account yet? <Link to="/signup" className="underline text-violet-950">Sign-up</Link></p>
+                        <p className="text-base text-gray-300">Don&apos;t have an account yet? <Link to="/signup" className="underline text-primary-100">Sign-up</Link></p>
                         
                     </form>
                 </div>

@@ -12,7 +12,7 @@ export default function CommentSection({ author, content, post_date }:CommentsDa
             {author}
           </p>
           <p className="text-sm text-primary-800 dark:text-gray-400">
-            <time>{JSON.stringify(post_date)}</time>
+            <time>{new Date(JSON.stringify(post_date)).toLocaleDateString()}</time>
           </p>
         </div>
       </header>

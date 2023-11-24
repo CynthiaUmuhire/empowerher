@@ -72,9 +72,9 @@ export default function Signup() {
                         />
                         {errors.confirmPassword && <p className=" pl-3 text-red-400"> Your passwords are incompatible</p>}
                         <button
-                            className="mt-9 w-full rounded-full py-3 text-center font-bold bg-violet-950 text-gray-300 transition hover:bg-gray-300 hover:text-violet-950 sm:w-80"
+                            className="mt-9 w-full rounded-full py-3 text-center font-bold bg-primary-800 text-gray-300 transition hover:bg-gray-300 hover:text-primary-800 sm:w-80"
                         > register</button>
-                        <p className="text-base text-gray-300">Already have an account ? <Link to="/login" className="underline text-red-300">Login</Link></p>
+                        <p className="text-base text-gray-300">Already have an account ? <Link to="/login" className="underline text-primary-100">Login</Link></p>
 
                     </form>
                 </div>

@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Stories from "./pages/Stories";
 import Signup from "./pages/Signup";
 import StoryDetails, { loader as storyLoader } from "./pages/StoryDetails";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   const routes = createBrowserRouter([
@@ -42,11 +43,19 @@ export default function App() {
           element: <StoryDetails />,
           loader: storyLoader,
         },
+        {
+          path: "*",
+          element: <NotFound />,
+        },
       ],
     },
     {
       path: "/profile",
       element: <Profile />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
   return <RouterProvider router={routes} />;

@@ -17,9 +17,9 @@ export default function StoryDetails() {
         {(story) => {
           return (
             <div>
-              <header className="w-full container mx-auto">
+              <header className=" mx-auto">
                 <div className="flex flex-col items-center py-12">
-                  <h1 className="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
+                  <h1 className="font-bold text-gray-800 uppercase hover:text-gray-700 text-3xl md:text-5xl">
                     {story?.short_title}
                   </h1>
                 </div>
@@ -32,13 +32,7 @@ export default function StoryDetails() {
                       <img src={story?.image} className="w-full h-full" />
                     </div>
                     <div className="bg-white flex flex-col text-gray-900 items-center justify-center p-6">
-                      <a
-                        href="#"
-                        className="text-blue-700 text-sm font-bold uppercase pb-4"
-                      >
-                        Technology
-                      </a>
-                      <p className="text-2xl font-bold mx-20  hover:text-gray-700 pb-4">
+                      <p className=" text-xl sm:text-2xl font-bold mx-20  hover:text-gray-700 pb-4">
                         {story?.title}
                       </p>
                       <p className="text-sm pb-8">
