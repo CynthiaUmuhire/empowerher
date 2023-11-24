@@ -8,6 +8,7 @@ import Stories from "./pages/Stories";
 import Signup from "./pages/Signup";
 import StoryDetails, { loader as storyLoader } from "./pages/StoryDetails";
 import NotFound from "./pages/NotFound";
+import ErrorElement from "./components/ErrorElement";
 
 export default function App() {
   const routes = createBrowserRouter([
@@ -33,6 +34,7 @@ export default function App() {
       path: "stories",
       element: <MainLayout />,
       loader: storiesLoader,
+      errorElement:<ErrorElement/>,
       children: [
         {
           index: true,

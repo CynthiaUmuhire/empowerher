@@ -2,6 +2,7 @@ import { NavLink, Link, useNavigate } from "react-router-dom"
 import { Menu} from '@headlessui/react'
 import { FaSignOutAlt, FaToggleOff, FaUser } from "react-icons/fa";
 import { signup } from "../api";
+import { IoIosMenu } from "react-icons/io";
 
 function Navbar() {
     const navigate = useNavigate()
@@ -36,13 +37,28 @@ function Navbar() {
               </div>
               <Menu>
                 <Menu.Button>
-                  <img
-                    src="/mom.jpg"
-                    alt="profile icon"
-                    className=" w-8 h-8 sm:w-12 sm:h-12  rounded-full object-cover"
-                  />
+                  <IoIosMenu className=" w-8 h-8 sm:w-12 sm:h-12 bg-primary-800 text-gray-300 " />
                 </Menu.Button>
                 <Menu.Items className=" bg-gray-300 text-primary-800 absolute top-7 right-12 rounded-xl max-w-2xl ">
+                  <div className="flex flex-col  sm:hidden">
+                    {navbarLinks.map((link) => {
+                      return (
+                        <NavLink
+                          key={link.id}
+                          to={link.path}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "flex h-10 items-center gap-1.5 px-7 py-4 rounded-xl font-extrabold hover:bg-primary-800 hover:text-gray-300 underline"
+                              : "flex h-10 items-center gap-1.5 px-7 py-4 hover:bg-primary-800 hover:text-gray-300"
+                          }
+                        >
+                          <span className="ms-1.5 text-sm  font-medium">
+                            {link.title}
+                          </span>
+                        </NavLink>
+                      );
+                    })}
+                  </div>
                   <Link
                     to="/profile"
                     className="flex h-10 items-center gap-1.5 px-7 py-4 rounded-xl hover:bg-primary-800 hover:text-gray-300"
@@ -54,9 +70,13 @@ function Navbar() {
                     <FaToggleOff />
                     <span className="ms-1.5 text-sm  font-medium">Theme</span>
                   </button>
-                  <button className="flex h-10 items-center gap-1.5 px-7 py-4 rounded-xl hover:bg-primary-800 hover:text-gray-300" onClick={()=>{
-                    signup.auth.signOut()
-                    navigate("/login")}}>
+                  <button
+                    className="flex h-10 items-center gap-1.5 px-7 py-4 rounded-xl hover:bg-primary-800 hover:text-gray-300"
+                    onClick={() => {
+                      signup.auth.signOut();
+                      navigate("/login");
+                    }}
+                  >
                     <FaSignOutAlt />
                     <span className="ms-1.5 text-sm  font-medium">Logout</span>
                   </button>
