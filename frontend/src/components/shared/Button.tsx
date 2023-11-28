@@ -21,7 +21,7 @@ export default function Button({
         disabled,
       "text-primary-200": variant === "primary",
       "bg-primary-100 text-primary-800": variant === "secondary",
-      "text-tertiary-200 outline-tertiary-200": variant === "tertiary",
+      "mt-9 w-full rounded-full py-3 text-center font-bold bg-primary-800 text-gray-300 transition hover:bg-gray-300 hover:text-primary-800 sm:w-80": variant === "tertiary",
     }
   );
   return (

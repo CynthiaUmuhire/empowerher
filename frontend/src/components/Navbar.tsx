@@ -60,7 +60,7 @@ function Navbar() {
                     })}
                   </div>
                   <Link
-                    to="/profile"
+                    to="#"
                     className="flex h-10 items-center gap-1.5 px-7 py-4 rounded-xl hover:bg-primary-800 hover:text-gray-300"
                   >
                     <FaUser />
