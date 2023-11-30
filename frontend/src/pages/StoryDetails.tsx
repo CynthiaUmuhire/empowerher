@@ -6,11 +6,13 @@ import { stories } from "../api";
 import { Suspense } from "react";
 
 export const loader: LoaderFunction = async ({ params }) => {
-  console.log(params);
   return defer({ user: stories.getData(params.id ? params.id : "") });
 };
 export default function StoryDetails() {
   const storiesPromise = useLoaderData() as { user: Promise<Story[]> };
+  const submitComment = ()=>{
+
+  }
   return (
     <Suspense>
       <Await resolve={storiesPromise.user}>
@@ -64,7 +66,8 @@ export default function StoryDetails() {
                       ></textarea>
                     </div>
                     <div className="w-1/4 mx-auto">
-                      <Button variant="secondary">Submit</Button>
+                      <Button variant="secondary" handleClick={()=> console.log("submitted")
+                      }>Submit</Button>
                     </div>
                   </form>
                   {story?.comments.map(

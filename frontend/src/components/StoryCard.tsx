@@ -7,7 +7,7 @@ export default function StoryCard({ title, image, id, content, author }:Story) {
   return (
     <article className="flex flex-col  shadow my-4">
       <div className="hover:opacity-75 h-60">
-        <img src={image} className="w-full h-full object-cover" />
+        <img src={image} className="w-full h-full object-cover object-top" />
       </div>
       <div className="bg-white flex flex-col gap-1 justify-start p-6">
         <p className="text-xl font-bold truncate  hover:text-gray-700 pb-4">

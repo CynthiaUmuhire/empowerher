@@ -10,9 +10,9 @@ function Navbar() {
       <section className="h-16">
         <nav className=" fixed w-full bg-primary-800 z-10 text-gray-300 py-2 px-4 ">
           <div className="flex justify-between max-w-screen-2xl mx-auto">
-            <h1 className="font-bold text-center text-lg sm:text-xl underline hover:translate-x-4 pt-1 ml-8">
+            <Link to="/" className="font-bold text-center text-lg sm:text-xl underline hover:scale-105 duration-500 pt-1 ml-8">
               Nurture Nest
-            </h1>
+            </Link>
             <div className="flex items-center justify-center gap-10 md:gap-24 mr-10">
               <div className="sm:flex overflow-hidden hidden  rounded-lg border border-gray-200">
                 <div className="hidden sm:flex items-center gap-5 md:gap-10 ">

@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { signup } from "../../api";
 function AuthLayout() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | undefined>();
@@ -18,9 +18,12 @@ function AuthLayout() {
       <div className="h-16">
         <nav className="w-full bg-transparent text-gray-300 py-2 px-4 ">
           <div className="flex justify-between max-w-screen-2xl mx-auto">
-            <h1 className="font-bold text-center text-lg sm:text-xl underline hover:translate-x-4 pt-1 ml-8">
+            <Link
+              to="/"
+              className="font-bold text-center text-lg sm:text-xl underline hover:scale-105 duration-500 pt-1 ml-8"
+            >
               Nurture Nest
-            </h1>
+            </Link>
           </div>
         </nav>
       </div>
