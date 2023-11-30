@@ -14,7 +14,7 @@ function Navbar() {
               Nurture Nest
             </h1>
             <div className="flex items-center justify-center gap-10 md:gap-24 mr-10">
-              <div className="flex overflow-hidden rounded-lg border border-gray-200">
+              <div className="sm:flex overflow-hidden hidden  rounded-lg border border-gray-200">
                 <div className="hidden sm:flex items-center gap-5 md:gap-10 ">
                   {navbarLinks.map((link) => {
                     return (

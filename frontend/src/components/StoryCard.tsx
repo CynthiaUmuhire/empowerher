@@ -10,9 +10,6 @@ export default function StoryCard({ title, image, id, content, author }:Story) {
         <img src={image} className="w-full h-full object-cover" />
       </div>
       <div className="bg-white flex flex-col gap-1 justify-start p-6">
-        <a className="text-blue-700 text-sm font-bold uppercase pb-4">
-          Technology
-        </a>
         <p className="text-xl font-bold truncate  hover:text-gray-700 pb-4">
           {title}
         </p>

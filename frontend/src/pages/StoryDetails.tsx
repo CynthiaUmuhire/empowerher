@@ -28,7 +28,7 @@ export default function StoryDetails() {
               <div className="grid place-content-center py-6">
                 <section className="max-w-7xl flex flex-col items-center px-3">
                   <article className="flex flex-col justify-center shadow my-4">
-                    <div className="hover:opacity-75 w-2/3 rounded-lg mx-auto">
+                    <div className=" w-2/3 rounded-lg mx-auto">
                       <img src={story?.image} className="w-full h-full" />
                     </div>
                     <div className="bg-white flex flex-col text-gray-900 items-center justify-center p-6">

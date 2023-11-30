@@ -3,6 +3,8 @@ import { AiFillLike } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { CommentsData } from "../../api/api";
 export default function CommentSection({ author, content, post_date }:CommentsData) {
+  console.log(post_date);
+  
   return (
     <article className="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
       <header className="flex justify-between items-center mb-2">

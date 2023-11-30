@@ -35,7 +35,7 @@ export default function MainLayout() {
 
   if (isLoading) return <StorySkeleton />;
   // if (isAuthenticated) return <Navigate to="/stories" replace />;
-  if (!isAuthenticated) return <Navigate to="/" replace />;
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
 
   return (
     <>
@@ -43,7 +43,7 @@ export default function MainLayout() {
       <section className="my-10">
         <Suspense fallback={<StorySkeleton />}>
           <Await resolve={stories.users}>
-            {(data) => <Outlet context={data} />}
+            {(data) => <Outlet context={data.slice(0,6)} />}
           </Await>
         </Suspense>
       </section>

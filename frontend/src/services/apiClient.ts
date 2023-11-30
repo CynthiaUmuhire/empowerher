@@ -9,7 +9,7 @@ import {
   doc,
   getDocs,
   getFirestore,
-} from "firebase/firestore/lite";
+} from "firebase/firestore";
 
 // Replace with your Firebase configuration
 const firebaseConfig = {
