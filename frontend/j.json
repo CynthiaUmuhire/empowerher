@@ -1,0 +1,28 @@
+{
+  "stories": [
+    {
+      "id": 1,
+      "short_title": "From Teen Mom to Nurse",
+      "title": "My Journey from Teen Mom to Nurse: An Inspiring Story of Resilience and Hope",
+      "content": "I was 16 years old when I found out I was pregnant. It was the scariest day of my life. I didn't know what to do. I was scared of telling my parents, I was scared of being judged, and I was scared of what my future would hold.  I dropped out of high school to focus on my pregnancy. I had to find a job to support myself and my baby. I dealt with the stigma of being a teen mom. But I was determined to overcome my challenges. I eventually went back to school and earned my high school diploma. I then went on to college and became a nurse. I am now a successful nurse and a single mom. I am proud of the woman I have become, and I am grateful for the challenges that have made me stronger. I want to share my story with other teen moms to inspire them to never give up on their dreams. No matter what challenges you face, you can overcome them and achieve your goals.",
+      "author": "Jessica Smith",
+      "image": "https://www.example.com/images/jessica-smith.jpg",
+      "post_date": "2023-11-11",
+      "likes": 1000,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Marias Marias",
+          "content": "Great story! I am so proud of you!",
+          "post_date": "2023-11-11"
+        },
+        {
+          "id": 2,
+          "author": "Chrismas is coming",
+          "content": "You are an inspiration to all teen moms!",
+          "post_date": "2023-11-11"
+        }
+      ]
+    }
+  ]
+}
