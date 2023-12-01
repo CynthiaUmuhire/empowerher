@@ -2,18 +2,26 @@ import { AiFillHeart } from "react-icons/ai";
 import { AiFillLike } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { CommentsData } from "../../api/api";
-export default function CommentSection({ author, content, post_date }:CommentsData) {
-  
+import dayjs from "dayjs";
+export default function CommentSection({
+  author,
+  content,
+  post_date,
+}: CommentsData) {
   return (
     <article className="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
       <header className="flex justify-between items-center mb-2">
         <div className="flex items-center">
           <p className="inline-flex items-center gap-2 mr-3 text-sm text-gray-900 dark:text-white font-semibold">
-            <FaUser/>
+            <FaUser />
             {author}
           </p>
           <p className="text-sm text-primary-800 dark:text-gray-400">
-            <time>{new Date(JSON.stringify(post_date)).toLocaleDateString()}</time>
+            <time>
+              {`${dayjs.unix(+post_date).date()} ${
+                dayjs.unix(+post_date).year() - 1969
+              }`}
+            </time>
           </p>
         </div>
       </header>

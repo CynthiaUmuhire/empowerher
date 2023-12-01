@@ -13,6 +13,9 @@ export default function StoryDetails() {
   const [comment, setComment] = useState<string|undefined>()
   console.log(comment);
   
+  const submitComment = ()=>{
+
+  }
   return (
     <Suspense>
       <Await resolve={storiesPromise.user}>
@@ -67,7 +70,8 @@ export default function StoryDetails() {
                       ></textarea>
                     </div>
                     <div className="w-1/4 mx-auto">
-                      <Button variant="secondary">Submit</Button>
+                      <Button variant="secondary" handleClick={()=> console.log("submitted")
+                      }>Submit</Button>
                     </div>
                   </form>
                   {story?.comments.map(
