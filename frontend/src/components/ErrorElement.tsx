@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./shared/Button";
 import Error from "../assets/Error";
+import signup from "../api/signup";
 
 export default function ErrorElement() {
   const navigate = useNavigate();

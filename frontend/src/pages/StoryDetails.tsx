@@ -3,13 +3,16 @@ import Button from "../components/shared/Button";
 import CommentSection from "../components/shared/CommentSection";
 import { CommentsData, Story } from "../api/api";
 import { stories } from "../api";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 export const loader: LoaderFunction = async ({ params }) => {
   return defer({ user: stories.getData(params.id ? params.id : "") });
 };
 export default function StoryDetails() {
   const storiesPromise = useLoaderData() as { user: Promise<Story[]> };
+  const [comment, setComment] = useState<string|undefined>()
+  console.log(comment);
+  
   const submitComment = ()=>{
 
   }
@@ -63,6 +66,7 @@ export default function StoryDetails() {
                         className="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                         placeholder="Write a comment..."
                         required
+                        onChange={(e)=> setComment(e.target.value)}
                       ></textarea>
                     </div>
                     <div className="w-1/4 mx-auto">

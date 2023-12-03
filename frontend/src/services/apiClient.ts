@@ -10,7 +10,6 @@ import {
   getDocs,
   getFirestore,
 } from "firebase/firestore";
-
 // Replace with your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA_kcLdDPgcGFhSl88fSl_d2pfHrVUigHs",
