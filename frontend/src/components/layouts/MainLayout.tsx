@@ -34,7 +34,6 @@ export default function MainLayout() {
   }, []);
 
   if (isLoading) return <StorySkeleton />;
-  // if (isAuthenticated) return <Navigate to="/stories" replace />;
   if (!isAuthenticated) return <Navigate to="/login" replace />;
 
   return (
