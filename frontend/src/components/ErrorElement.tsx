@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./shared/Button";
 import Error from "../assets/Error";
+import signup from "../api/signup";
 
 export default function ErrorElement() {
   const navigate = useNavigate();
@@ -11,6 +12,13 @@ export default function ErrorElement() {
       <Button variant="secondary" handleClick={() => navigate(-1)}>
         Go back
       </Button>
+      <button
+                    className="flex h-10 items-center gap-1.5 px-7 py-4 rounded-xl hover:bg-primary-800 hover:text-gray-300"
+                    onClick={() => {
+                      signup.auth.signOut();
+                      navigate("/login");
+                    }}
+                  ></button>
     </div>
   );
 }
