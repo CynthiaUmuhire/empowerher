@@ -34,5 +34,6 @@ Before you begin, make sure you have the following installed:
    ```bash
    npm run dev
    ```
-
    The development server should be running at [http://localhost:3000](http://localhost:3000).
+   ### The deployed link
+   [https://github.com/CynthiaUmuhire/empowerher]
